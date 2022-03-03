@@ -1,6 +1,5 @@
 from flask import Flask
 from flaskext.mysql import MySQL
-
 from db_config import connect_db
 
 app = Flask(__name__)
@@ -15,3 +14,6 @@ def home():
 
 if __name__ == '__main__':
   app.run()
+
+cursor.close()
+cnx.close()
