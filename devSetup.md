@@ -16,3 +16,8 @@ Update the virtual environment:
 Install the following dependencies:
 `python -m pip install flask`
 `python -m pip install flask-mysql`
+`python -m pip install python-dotenv`
+
+### Run
+
+`python -m flask run`
