@@ -1,7 +1,8 @@
 import json
 
 def house_characters(cursor, house_name):
-  query ="SELECT name, house FROM students WHERE house = '{}' UNION SELECT name, house FROM staff WHERE house = 'Gryffindor'".format(house_name)
+
+  query ="SELECT * FROM all_characters WHERE house = '{}' GROUP BY name ASC".format(house_name)
 
   cursor.execute(query)
 

@@ -2,6 +2,7 @@ from flaskext.mysql import MySQL
 from pymysql import MySQLError
 from create_tables import create_table_students, create_table_staff,create_table_houses
 from populate_db import populate_db_students_staff, populate_db_houses 
+from create_views import create_views
 import os
 
 # from dotenv import load_dotenv
@@ -25,17 +26,22 @@ def connect_db(app):
     mysql = MySQL(app)
     cnx = mysql.connect()
     cursor = cnx.cursor() 
+    
     cursor.execute("USE {}".format('harrypotter'))
   except MySQLError as e:
     if e.args[0] == 1049:
       create_db(cursor, 'harrypotter')
       cnx.select_db('harrypotter')
+
       create_table_students(cursor)
       create_table_staff(cursor)
       create_table_houses(cursor)
 
       populate_db_students_staff(cursor, cnx)
       populate_db_houses(cursor, cnx)
+
+      create_views(cursor)
+
       return cnx
   else: 
     print("Database {} exists".format('harrypotter'))
