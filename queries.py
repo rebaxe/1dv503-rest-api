@@ -4,12 +4,39 @@ def house_characters(cursor, house_name):
   query ="SELECT name, house FROM students WHERE house = '{}' UNION SELECT name, house FROM staff WHERE house = 'Gryffindor'".format(house_name)
 
   cursor.execute(query)
-  
-  row_headers=[x[0] for x in cursor.description] #this will extract row headers
+
+  # Get row headers
+  row_headers=[x[0] for x in cursor.description]
   result = cursor.fetchall()
   json_data=[]
   for r in result:
       json_data.append(dict(zip(row_headers,r)))
   return json.dumps(json_data)
 
+def house_heads(cursor):
+  query ="SELECT staff.name AS head_name, staff.species, staff.gender, staff.patronus, staff.wizard, staff.image, houses.house, houses.animal, houses.ghost, houses.founder, houses.element, houses.first_color, houses.second_color From staff JOIN houses ON (staff.name = houses.head)"
 
+  cursor.execute(query)
+
+  # Get row headers
+  row_headers=[x[0] for x in cursor.description]
+
+  result = cursor.fetchall()
+  json_data=[]
+  for r in result:
+      json_data.append(dict(zip(row_headers,r)))
+  return json.dumps(json_data)
+
+def house_total_students(cursor):
+  query ="SELECT houses.house, COUNT(students.name) AS total_students FROM houses	JOIN students ON (houses.house = students.house) GROUP BY houses.house ASC"
+
+  cursor.execute(query)
+
+  # Get row headers
+  row_headers=[x[0] for x in cursor.description]
+
+  result = cursor.fetchall()
+  json_data=[]
+  for r in result:
+      json_data.append(dict(zip(row_headers,r)))
+  return json.dumps(json_data)

@@ -18,6 +18,14 @@ def home():
 def get_house_characters(housename):
     return house_characters(cursor, housename)
 
+@app.route("/houses/heads", methods=['GET'])
+def get_house_heads():
+    return house_heads(cursor)
+
+@app.route("/houses/total-students", methods=['GET'])
+def get_house_total_students():
+    return house_total_students(cursor)
+
 if __name__ == '__main__':
   app.run()
 
