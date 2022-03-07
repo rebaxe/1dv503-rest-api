@@ -1,0 +1,42 @@
+[
+  {
+    "house": "Gryffindor",
+    "animal": "lion",
+    "head": "Minerva McGonagall",
+    "ghost": "Nearly Headless Nick",
+    "founder": "Godric Gryffindor",
+    "element": "fire",
+    "first_color": "red",
+    "second_color": "gold"
+  },
+  {
+    "house": "Hufflepuff",
+    "animal": "badger",
+    "head": "Pomona Sprout",
+    "ghost": "Fat Friar",
+    "founder": "Helga Hufflepuff",
+    "element": "earth",
+    "first_color": "yellow",
+    "second_color": "black"
+  },
+  {
+    "house": "Ravenclaw",
+    "animal": "eagle",
+    "head": "Filius Flitwick",
+    "ghost": "Grey Lady",
+    "founder": "Rowena Ravenclaw",
+    "element": "air",
+    "first_color": "blue",
+    "second_color": "bronze"
+  },
+  {
+    "house": "Slytherin",
+    "animal": "serpent",
+    "head": "Horace Slughorn",
+    "ghost": "Bloody Baron",
+    "founder": "Salazar Slytherin",
+    "element": "water",
+    "first_color": "green",
+    "second_color": "silver"
+  }
+]

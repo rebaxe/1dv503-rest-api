@@ -1,7 +1,7 @@
 from flaskext.mysql import MySQL
 from pymysql import MySQLError
-from create_tables import create_table_students, create_table_staff
-from populate_db import populate_db 
+from create_tables import create_table_students, create_table_staff,create_table_houses
+from populate_db import populate_db_students_staff, populate_db_houses 
 import os
 
 # from dotenv import load_dotenv
@@ -32,13 +32,11 @@ def connect_db(app):
       cnx.select_db('harrypotter')
       create_table_students(cursor)
       create_table_staff(cursor)
-      
-      populate_db(cursor, cnx)
+      create_table_houses(cursor)
+
+      populate_db_students_staff(cursor, cnx)
+      populate_db_houses(cursor, cnx)
       return cnx
   else: 
-    # print out variable from .env file
-    print(type(os.getenv('MYSQL_PORT')))
-    print(type(int(os.getenv('MYSQL_PORT'))))
-    
     print("Database {} exists".format('harrypotter'))
     return cnx

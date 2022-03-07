@@ -1,6 +1,6 @@
 import json
 
-def populate_db(cursor, cnx):
+def populate_db_students_staff(cursor, cnx):
   # Read JSON
   data = open('./data.json').read()
   json_data = json.loads(data)
@@ -21,10 +21,32 @@ def populate_db(cursor, cnx):
     if isStudent == True:
       # Inserting into students
       query = "INSERT INTO students (name, house, species, gender,patronus, wizard, image) VALUES (%s,	%s,%s,%s,%s,%s,%s)"
-      cursor.execute(query, (name,	house, 	 species, gender, patronus, wizard, image))
+      cursor.execute(query, (name,	house,species, gender, patronus, wizard, image))
 
     if isStaff == True:
       # Inserting into staff
       query = "INSERT INTO staff (name, house, species, gender,patronus, wizard, image) VALUES (%s,	%s,%s,%s,%s,%s,%s)"
       cursor.execute(query, (name,	house, 	 species, gender, patronus, wizard, image))
+  cnx.commit()
+
+def populate_db_houses(cursor, cnx):
+  # Read JSON
+  data = open('./houses.json').read()
+  json_data = json.loads(data)
+
+  # Parse JSON and insert in DB
+  for i, item in enumerate(json_data):
+    house = item.get("house")
+    animal = item.get("animal")
+    head = item.get("head")
+    ghost = item.get("ghost")
+    founder = item.get("founder")
+    element = item.get("element")    
+    first_color = item.get("first_color")
+    second_color = item.get("second_color")
+
+    # Inserting into houses
+    query = "INSERT INTO houses (house, animal, head, ghost, founder, element, first_color, second_color) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+    cursor.execute(query, (house, animal, head, ghost, founder, element, first_color, second_color))
+ 
   cnx.commit()
