@@ -6,6 +6,11 @@ def create_table_students(cursor):
                       "  `student_id` int(50) NOT NULL AUTO_INCREMENT," \
                       "  `name` varchar(255)," \
                       "  `house` varchar(255)," \
+                      "  `species` varchar(255)," \
+                      "  `gender` varchar(255)," \
+                      "  `patronus` varchar(255)," \
+                      "  `wizard` varchar(255)," \
+                      "  `image` varchar(255)," \
                       "  PRIMARY KEY (`student_id`)" \
                       ")"
 
@@ -25,6 +30,11 @@ def create_table_staff(cursor):
                       "  `staff_id` int(50) NOT NULL AUTO_INCREMENT," \
                       "  `name` varchar(255)," \
                       "  `house` varchar(255)," \
+                      "  `species` varchar(255)," \
+                      "  `gender` varchar(255)," \
+                      "  `patronus` varchar(255)," \
+                      "  `wizard` varchar(255)," \
+                      "  `image` varchar(255)," \
                       "  PRIMARY KEY (`staff_id`)" \
                       ")"
 
