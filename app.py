@@ -12,6 +12,10 @@ cursor = cnx.cursor()
 def home():
     return {"message": "Hello World!"}
 
+@app.route("/houses/gryffindor/characters", methods=['GET'])
+def house_characters():
+    return {"message": "gryffindor"}
+
 if __name__ == '__main__':
   app.run()
 
