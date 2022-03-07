@@ -1,6 +1,6 @@
 from flaskext.mysql import MySQL
 from pymysql import MySQLError
-from create_tables import create_table_students
+from create_tables import create_table_students, create_table_staff
 from populate_db import populate_db 
 import os
 
@@ -31,6 +31,8 @@ def connect_db(app):
       create_db(cursor, 'harrypotter')
       cnx.select_db('harrypotter')
       create_table_students(cursor)
+      create_table_staff(cursor)
+      
       populate_db(cursor, cnx)
       return cnx
   else: 
