@@ -1,14 +1,3 @@
 # 1dv503-rest-api
 
-----------
-
-get character by name
-
------------
-
-create wand table
-name info om wand
-
-change student id wand
-
-----------
+A rest api serving information about Hogwarts related characters and the four houses.
