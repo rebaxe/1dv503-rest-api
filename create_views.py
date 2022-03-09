@@ -2,7 +2,7 @@ from pymysql import MySQLError
 
 def create_views(cursor):
   try:
-    query = "CREATE VIEW all_characters AS SELECT name, house FROM students UNION SELECT name, house FROM staff"
+    query = "CREATE VIEW all_characters AS SELECT name, house, species, gender, patronus, wizard, image FROM students UNION SELECT name, house, species, gender, patronus, wizard, image FROM staff UNION SELECT name, house, species, gender, patronus, wizard, image FROM others"
     cursor.execute(query)
 
   except MySQLError as e:
