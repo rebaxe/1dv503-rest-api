@@ -2,7 +2,7 @@ import json
 
 def house_characters(cursor, house_name):
 
-  query ="SELECT * FROM all_characters WHERE house = '{}' GROUP BY name ASC".format(house_name)
+  query ="SELECT name FROM all_characters WHERE house = '{}' GROUP BY name ASC".format(house_name)
 
   cursor.execute(query)
 
@@ -37,6 +37,33 @@ def house_total_students(cursor):
   row_headers=[x[0] for x in cursor.description]
 
   result = cursor.fetchall()
+  json_data=[]
+  for r in result:
+      json_data.append(dict(zip(row_headers,r)))
+  return json.dumps(json_data)
+
+def character_by_name(cursor, name):
+  query="SELECT * FROM all_characters WHERE name LIKE '%{}%'".format(name)
+
+  cursor.execute(query)
+
+  # Get row headers
+  row_headers=[x[0] for x in cursor.description]
+  result = cursor.fetchall()
+  json_data=[]
+  for r in result:
+      json_data.append(dict(zip(row_headers,r)))
+  return json.dumps(json_data)
+
+def all_from_table(cursor, table):
+  query="SELECT * FROM {}".format(table)
+
+  cursor.execute(query)
+
+  # Get row headers
+  row_headers=[x[0] for x in cursor.description]
+  result = cursor.fetchall()
+
   json_data=[]
   for r in result:
       json_data.append(dict(zip(row_headers,r)))
