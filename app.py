@@ -12,7 +12,7 @@ cursor = cnx.cursor()
 
 @app.route("/", methods=['GET'])
 def home():
-    return {"message": "Hello World!"}
+    return {"message": "Hello Hogwarts World!"}
 
 @app.route("/houses/<housename>/characters", methods=['GET'])
 def get_house_characters(housename):
@@ -26,8 +26,21 @@ def get_house_heads():
 def get_house_total_students():
     return house_total_students(cursor)
 
+@app.route("/characters/<name>", methods=['GET'])
+def get_character_by_name(name):
+    return character_by_name(cursor, name)
+
+@app.route("/characters/students", methods=['GET'])
+def get_students():
+    return all_from_table(cursor, "students")
+
+@app.route("/characters/staff", methods=['GET'])
+def get_staff():
+    return all_from_table(cursor, "staff")
+
+@app.route("/characters/others", methods=['GET'])
+def get_others():
+    return all_from_table(cursor, "others")
+
 if __name__ == '__main__':
   app.run()
-
-# cursor.close()
-# cnx.close()
