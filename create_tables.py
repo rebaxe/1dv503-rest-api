@@ -1,7 +1,7 @@
 from pymysql import MySQLError
 
 def create_table_students(cursor):
-  # Define query for creating planets table.
+  # Define query for creating students table.
     create_students = "CREATE TABLE `students` (" \
                       "  `student_id` int(50) NOT NULL AUTO_INCREMENT," \
                       "  `name` varchar(255)," \
@@ -25,7 +25,7 @@ def create_table_students(cursor):
         print("Successfully create table: students.")
 
 def create_table_staff(cursor):
-  # Define query for creating planets table.
+  # Define query for creating staff table.
     create_staff = "CREATE TABLE `staff` (" \
                       "  `staff_id` int(50) NOT NULL AUTO_INCREMENT," \
                       "  `name` varchar(255)," \
@@ -48,8 +48,31 @@ def create_table_staff(cursor):
     else:
         print("Successfully create table: staff.")
         
+def create_table_others(cursor):
+  # Define query for creating others table.
+    create_others = "CREATE TABLE `others` (" \
+                      "  `other_id` int(50) NOT NULL AUTO_INCREMENT," \
+                      "  `name` varchar(255)," \
+                      "  `house` varchar(255)," \
+                      "  `species` varchar(255)," \
+                      "  `gender` varchar(255)," \
+                      "  `patronus` varchar(255)," \
+                      "  `wizard` varchar(255)," \
+                      "  `image` varchar(255)," \
+                      "  PRIMARY KEY (`other_id`)" \
+                      ")"
+    try:
+        print("Creating table others: ")
+        # Create table with query.
+        cursor.execute(create_others)
+    except MySQLError as err:
+        # Catch error if the table already existed. 
+        print(err)
+    else:
+        print("Successfully create table: others.")
+        
 def create_table_houses(cursor):
-  # Define query for creating planets table.
+  # Define query for creating house table.
     create_houses = "CREATE TABLE `houses` (" \
                       "  `house_id` int(50) NOT NULL AUTO_INCREMENT," \
                       "  `house` varchar(255)," \

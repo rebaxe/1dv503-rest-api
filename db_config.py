@@ -1,12 +1,9 @@
 from flaskext.mysql import MySQL
 from pymysql import MySQLError
-from create_tables import create_table_students, create_table_staff,create_table_houses
-from populate_db import populate_db_students_staff, populate_db_houses 
+from create_tables import create_table_others, create_table_students, create_table_staff,create_table_houses
+from populate_db import populate_db_houses, populate_db_students_staff_others 
 from create_views import create_views
 import os
-
-# from dotenv import load_dotenv
-# load_dotenv()
 
 def create_db(cursor, DB_NAME):
   try:
@@ -35,9 +32,10 @@ def connect_db(app):
 
       create_table_students(cursor)
       create_table_staff(cursor)
+      create_table_others(cursor)
       create_table_houses(cursor)
 
-      populate_db_students_staff(cursor, cnx)
+      populate_db_students_staff_others(cursor, cnx)
       populate_db_houses(cursor, cnx)
 
       create_views(cursor)
