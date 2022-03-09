@@ -1,6 +1,6 @@
 import json
 
-def populate_db_students_staff(cursor, cnx):
+def populate_db_students_staff_others(cursor, cnx):
   # Read JSON
   data = open('./data.json').read()
   json_data = json.loads(data)
@@ -20,13 +20,15 @@ def populate_db_students_staff(cursor, cnx):
 
     if isStudent == True:
       # Inserting into students
-      query = "INSERT INTO students (name, house, species, gender,patronus, wizard, image) VALUES (%s,	%s,%s,%s,%s,%s,%s)"
-      cursor.execute(query, (name,	house,species, gender, patronus, wizard, image))
-
-    if isStaff == True:
+      query = "INSERT INTO students (name, house, species, gender, patronus, wizard, image) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+      cursor.execute(query, (name, house, species, gender, patronus, wizard, image))
+    elif isStaff == True:
       # Inserting into staff
-      query = "INSERT INTO staff (name, house, species, gender,patronus, wizard, image) VALUES (%s,	%s,%s,%s,%s,%s,%s)"
-      cursor.execute(query, (name,	house, 	 species, gender, patronus, wizard, image))
+      query = "INSERT INTO staff (name, house, species, gender, patronus, wizard, image) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+      cursor.execute(query, (name, house, species, gender, patronus, wizard, image))
+    else: 
+      query = "INSERT INTO others (name, house, species, gender, patronus, wizard, image) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+      cursor.execute(query, (name, house, species, gender, patronus, wizard, image))
   cnx.commit()
 
 def populate_db_houses(cursor, cnx):

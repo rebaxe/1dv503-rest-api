@@ -4,7 +4,8 @@ Run the following command to setup a virtual environment locally:
 
 ### macOS
 
-`python3 -m venv .venv source .venv/bin/activate`
+`python3 -m venv .venv`<br>
+`source .venv/bin/activate`
 
 ### Windows
 
@@ -13,10 +14,8 @@ Run the following command to setup a virtual environment locally:
 Update the virtual environment:
 `python -m pip install --upgrade pip`
 
-Install the following dependencies:
-`python -m pip install flask`
-`python -m pip install flask-mysql`
-`python -m pip install python-dotenv`
+Install dependencies:
+`python -m pip install -r requirements.txt`
 
 ### Run
 
