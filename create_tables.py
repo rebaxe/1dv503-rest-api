@@ -9,7 +9,7 @@ def create_table_students(cursor):
                       "  `species` varchar(255)," \
                       "  `gender` varchar(255)," \
                       "  `patronus` varchar(255)," \
-                      "  `wizard` varchar(255)," \
+                      "  `wizard` int(50)," \
                       "  `image` varchar(255)," \
                       "  PRIMARY KEY (`student_id`)" \
                       ")"
@@ -33,7 +33,7 @@ def create_table_staff(cursor):
                       "  `species` varchar(255)," \
                       "  `gender` varchar(255)," \
                       "  `patronus` varchar(255)," \
-                      "  `wizard` varchar(255)," \
+                      "  `wizard` int(50)," \
                       "  `image` varchar(255)," \
                       "  PRIMARY KEY (`staff_id`)" \
                       ")"
@@ -57,7 +57,7 @@ def create_table_others(cursor):
                       "  `species` varchar(255)," \
                       "  `gender` varchar(255)," \
                       "  `patronus` varchar(255)," \
-                      "  `wizard` varchar(255)," \
+                      "  `wizard` int(50)," \
                       "  `image` varchar(255)," \
                       "  PRIMARY KEY (`other_id`)" \
                       ")"
