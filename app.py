@@ -1,9 +1,11 @@
 from flask import Flask
+from flask_cors import CORS
 from flaskext.mysql import MySQL
 from db_config import connect_db
 from queries import *
 
 app = Flask(__name__)
+CORS(app)
 
 # Connect to DB
 cnx = connect_db(app)
