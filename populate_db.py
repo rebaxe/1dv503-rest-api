@@ -19,9 +19,10 @@ def populate_db_students_staff_others(cursor, cnx):
     isStaff = item.get("hogwartsStaff")
 
     if isStudent == True:
-      # Inserting into students
-      query = "INSERT INTO students (name, house, species, gender, patronus, wizard, image) VALUES (%s,%s,%s,%s,%s,%s,%s)"
-      cursor.execute(query, (name, house, species, gender, patronus, wizard, image))
+      if house != None:
+        # Inserting into students
+        query = "INSERT INTO students (name, house, species, gender, patronus, wizard, image) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+        cursor.execute(query, (name, house, species, gender, patronus, wizard, image))
     elif isStaff == True:
       # Inserting into staff
       query = "INSERT INTO staff (name, house, species, gender, patronus, wizard, image) VALUES (%s,%s,%s,%s,%s,%s,%s)"
