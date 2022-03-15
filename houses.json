@@ -1,6 +1,6 @@
 [
   {
-    "house": "Gryffindor",
+    "name": "Gryffindor",
     "animal": "lion",
     "head": "Minerva McGonagall",
     "ghost": "Nearly Headless Nick",
@@ -10,7 +10,7 @@
     "second_color": "gold"
   },
   {
-    "house": "Hufflepuff",
+    "name": "Hufflepuff",
     "animal": "badger",
     "head": "Pomona Sprout",
     "ghost": "Fat Friar",
@@ -20,7 +20,7 @@
     "second_color": "black"
   },
   {
-    "house": "Ravenclaw",
+    "name": "Ravenclaw",
     "animal": "eagle",
     "head": "Filius Flitwick",
     "ghost": "Grey Lady",
@@ -30,7 +30,7 @@
     "second_color": "bronze"
   },
   {
-    "house": "Slytherin",
+    "name": "Slytherin",
     "animal": "serpent",
     "head": "Horace Slughorn",
     "ghost": "Bloody Baron",

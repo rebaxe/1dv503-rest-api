@@ -2,7 +2,7 @@ import json
 
 def house(cursor, house_name):
 
-  query ="SELECT * FROM houses WHERE house = '{}'".format(house_name)
+  query ="SELECT * FROM houses WHERE name = '{}'".format(house_name)
 
   cursor.execute(query)
 
@@ -29,7 +29,7 @@ def house_characters(cursor, house_name):
   return json.dumps(json_data)
 
 def house_heads(cursor):
-  query ="SELECT staff.name AS head_name, staff.species, staff.gender, staff.patronus, staff.wizard, staff.image, houses.house, houses.animal, houses.ghost, houses.founder, houses.element, houses.first_color, houses.second_color From staff JOIN houses ON (staff.name = houses.head)"
+  query ="SELECT staff.name AS head_name, staff.species, staff.gender, staff.patronus, staff.wizard, staff.image, houses.name as house_name, houses.animal, houses.ghost, houses.founder, houses.element, houses.first_color, houses.second_color From staff JOIN houses ON (staff.name = houses.head)"
 
   cursor.execute(query)
 
@@ -43,7 +43,7 @@ def house_heads(cursor):
   return json.dumps(json_data)
 
 def house_total_students(cursor):
-  query ="SELECT houses.house, COUNT(students.name) AS total_students FROM houses	JOIN students ON (houses.house = students.house) GROUP BY houses.house ASC"
+  query ="SELECT houses.name, COUNT(students.name) AS total_students FROM houses	JOIN students ON (houses.name = students.house) GROUP BY houses.name ASC"
 
   cursor.execute(query)
 
