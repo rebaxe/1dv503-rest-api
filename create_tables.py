@@ -75,7 +75,7 @@ def create_table_houses(cursor):
   # Define query for creating house table.
     create_houses = "CREATE TABLE `houses` (" \
                       "  `house_id` int(50) NOT NULL AUTO_INCREMENT," \
-                      "  `house` varchar(255)," \
+                      "  `name` varchar(255)," \
                       "  `animal` varchar(255)," \
                       "  `head` varchar(255)," \
                       "  `ghost` varchar(255)," \

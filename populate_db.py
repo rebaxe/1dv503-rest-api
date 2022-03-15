@@ -38,7 +38,7 @@ def populate_db_houses(cursor, cnx):
 
   # Parse JSON and insert in DB
   for i, item in enumerate(json_data):
-    house = item.get("house")
+    name = item.get("name")
     animal = item.get("animal")
     head = item.get("head")
     ghost = item.get("ghost")
@@ -48,7 +48,7 @@ def populate_db_houses(cursor, cnx):
     second_color = item.get("second_color")
 
     # Inserting into houses
-    query = "INSERT INTO houses (house, animal, head, ghost, founder, element, first_color, second_color) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-    cursor.execute(query, (house, animal, head, ghost, founder, element, first_color, second_color))
+    query = "INSERT INTO houses (name, animal, head, ghost, founder, element, first_color, second_color) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+    cursor.execute(query, (name, animal, head, ghost, founder, element, first_color, second_color))
  
   cnx.commit()
