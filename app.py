@@ -5,6 +5,7 @@ from db_config import connect_db
 from queries import *
 
 app = Flask(__name__)
+# Add CORS
 CORS(app)
 
 # Connect to DB
@@ -15,6 +16,10 @@ cursor = cnx.cursor()
 @app.route("/", methods=['GET'])
 def home():
     return {"message": "Hello Hogwarts World!"}
+
+@app.route("/houses/<housename>", methods=['GET'])
+def get_house(housename):
+    return house(cursor, housename)
 
 @app.route("/houses/<housename>/characters", methods=['GET'])
 def get_house_characters(housename):

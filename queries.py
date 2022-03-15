@@ -1,5 +1,19 @@
 import json
 
+def house(cursor, house_name):
+
+  query ="SELECT * FROM houses WHERE house = '{}'".format(house_name)
+
+  cursor.execute(query)
+
+  # Get row headers
+  row_headers=[x[0] for x in cursor.description]
+  result = cursor.fetchall()
+  json_data=[]
+  for r in result:
+      json_data.append(dict(zip(row_headers,r)))
+  return json.dumps(json_data)
+
 def house_characters(cursor, house_name):
 
   query ="SELECT * FROM all_characters WHERE house = '{}'".format(house_name)
